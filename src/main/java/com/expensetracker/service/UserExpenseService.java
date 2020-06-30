@@ -51,5 +51,13 @@ public class UserExpenseService {
 			return ResponseEntity.ok(userExpense);
 		}
 
+	public ResponseEntity<Object> deleteExpenseByExpenseId(int id) {
+		
+		
+		repository.deleteById(id);
+		
+		return null;
+	}
+
 }
 

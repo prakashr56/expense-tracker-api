@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -17,6 +18,9 @@ public class UserService {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+//	@Autowired
+//	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	public User getUserById(int id) {
 		
@@ -36,6 +40,16 @@ public class UserService {
 	}
 
 	public ResponseEntity<Object> saveUser(User user) {
+		
+		System.out.println("...................");
+		
+		User userExist = userRepository.findByUserName(user.getUserName());
+		
+		System.out.println("userExist:" + userExist);
+		
+		if(userExist != null) {
+			 throw new RuntimeException("User already exist");
+		}
 		
 		User savedUser = userRepository.save(user);
 		
