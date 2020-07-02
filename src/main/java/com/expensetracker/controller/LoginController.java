@@ -13,7 +13,7 @@ import com.expensetracker.service.LoginService;
 
 @RestController
 @RequestMapping("/login")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("*")
 public class LoginController {
 
 	@Autowired

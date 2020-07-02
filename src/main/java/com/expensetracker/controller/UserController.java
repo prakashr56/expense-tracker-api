@@ -18,7 +18,7 @@ import com.expensetracker.service.UserService;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("*")
 public class UserController {
 
 	@Autowired
