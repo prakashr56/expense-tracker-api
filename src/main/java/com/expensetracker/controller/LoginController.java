@@ -18,12 +18,11 @@ public class LoginController {
 
 	@Autowired
 	private LoginService loginService;
-	
+
 	@PostMapping("/loginUser")
-	public ResponseEntity<Object> loginUser(@RequestBody User user){
+	public ResponseEntity<Object> loginUser(@RequestBody User user) {
 		
-		ResponseEntity<Object> responseEntity = loginService.loginUser(user);
-		
-		return responseEntity;
+		return loginService.loginUser(user);
+
 	}
 }

@@ -16,13 +16,12 @@ public class LoginService {
 
 	public ResponseEntity<Object> loginUser(User user) {
 	
-		User userDetails = loginRepository.findByUserNameAndPassword(user.getUserName(), user.getPassword());
+		User userDetails = loginRepository.findByEmailAndPasswordAndActive(user.getEmail(), user.getPassword(), true);
 		
 		if(userDetails == null) {
 			return new ResponseEntity<>(user.getUserName() +" not found", HttpStatus.NOT_FOUND);
 		}
 		
 		return ResponseEntity.ok(userDetails);
-		
 	}
 }

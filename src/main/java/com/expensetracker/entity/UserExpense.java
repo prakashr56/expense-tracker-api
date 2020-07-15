@@ -7,6 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 @Entity
 @Table(name = "userexpense")
 public class UserExpense {
@@ -38,40 +43,4 @@ public class UserExpense {
 	public int getUserId() {
 		return userId;
 	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	public String getAmount() {
-		return amount;
-	}
-
-	public void setAmount(String amount) {
-		this.amount = amount;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getNote() {
-		return note;
-	}
-
-	public void setNote(String note) {
-		this.note = note;
-	}
-
-	public Long getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Long createdAt) {
-		this.createdAt = createdAt;
-	}	
 }

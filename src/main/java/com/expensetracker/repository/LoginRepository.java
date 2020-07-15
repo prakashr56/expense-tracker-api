@@ -8,6 +8,10 @@ import com.expensetracker.entity.User;
 @Repository
 public interface LoginRepository extends JpaRepository<User, Integer> {
 
-	User findByUserNameAndPassword(String userName, String password);
+	User findByEmailAndPassword(String email, String password);
+
+	User findByEmail(String email);
+
+	User findByEmailAndPasswordAndActive(String email, String password, Boolean active);
 
 }
