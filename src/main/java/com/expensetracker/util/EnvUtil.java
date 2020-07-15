@@ -55,6 +55,7 @@ public class EnvUtil {
     
     public String getAngularUrl() throws UnknownHostException {
     	
-  	 return "http://localhost:4200/success";
+//  	 return "http://localhost:4200/success";
+  	 return "https://prakashr-expense-tracker.herokuapp.com/success";
   }
 }
