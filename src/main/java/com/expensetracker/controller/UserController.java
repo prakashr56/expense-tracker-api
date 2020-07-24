@@ -84,11 +84,12 @@ public class UserController {
 
 			System.out.println("hi.....");
 			
-			String portNumber = environment.getProperty("server.port");
-			String hostAddress = InetAddress.getLocalHost().getHostAddress();
+//			String portNumber = environment.getProperty("server.port");
+//			String hostAddress = InetAddress.getLocalHost().getHostAddress();
 
 			ConfirmationToken confirmationToken = new ConfirmationToken(user);
 
+			user.setActive(false);
 			userService.save(user);
 			confirmationTokenRepository.save(confirmationToken);
 
@@ -116,12 +117,12 @@ public class UserController {
 						
 			ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
 			
-			if(token.getUser().getActive()) {
-				map.put("response", "Already Verified");
-				return ResponseEntity.ok(map);
-			}	
+//			if(token != null && token.getUser().getActive()) {
+//				map.put("response", "Already Verified");
+//				return ResponseEntity.ok(map);
+//			}	
 			
-			System.out.println("confirm token: "+ token.getConfirmationToken());
+			
 			if (token != null) {			
 				
 				User user = userService.findUserByEmail(token.getUser().getEmail());
